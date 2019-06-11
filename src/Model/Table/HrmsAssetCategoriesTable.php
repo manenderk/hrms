@@ -33,7 +33,7 @@ class HrmsAssetCategoriesTable extends Table
         parent::initialize($config);
 
         $this->setTable('hrms_asset_categories');
-        $this->setDisplayField('id');
+        $this->setDisplayField('category_name');
         $this->setPrimaryKey('id');
 
         $this->addBehavior('Timestamp');
