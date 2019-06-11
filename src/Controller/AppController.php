@@ -1,0 +1,101 @@
+<?php
+/**
+ * CakePHP(tm) : Rapid Development Framework (https://cakephp.org)
+ * Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
+ *
+ * Licensed under The MIT License
+ * For full copyright and license information, please see the LICENSE.txt
+ * Redistributions of files must retain the above copyright notice.
+ *
+ * @copyright Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
+ * @link      https://cakephp.org CakePHP(tm) Project
+ * @since     0.2.9
+ * @license   https://opensource.org/licenses/mit-license.php MIT License
+ */
+namespace App\Controller;
+
+use Cake\Controller\Controller;
+use Cake\Event\Event;
+
+/**
+ * Application Controller
+ *
+ * Add your application-wide methods in the class below, your controllers
+ * will inherit them.
+ *
+ * @link https://book.cakephp.org/3.0/en/controllers.html#the-app-controller
+ */
+class AppController extends Controller
+{
+
+    /**
+     * Initialization hook method.
+     *
+     * Use this method to add common initialization code like loading components.
+     *
+     * e.g. `$this->loadComponent('Security');`
+     *
+     * @return void
+     */
+    public function initialize()
+    {
+        parent::initialize();
+
+        $this->loadComponent('RequestHandler', [
+            'enableBeforeRedirect' => false,
+        ]);
+        $this->loadComponent('Flash');
+
+        $this->loadComponent('Auth', [
+            'authenticate' => [
+                'Form' => [
+                    'userModel' => 'UsersAuth',
+                    'fields' => [
+                        'username' => 'login_name',
+                        'password' => 'password',
+                    ]
+                ]
+            ],
+            'loginAction' => [
+                'controller' => 'UsersAuth',
+                'action' => 'login'
+            ],
+             // If unauthorized, return them to page they were just on
+            'unauthorizedRedirect' => $this->referer()
+        ]);
+
+        
+        //GET CURRENT USER ID
+        $currentUserId = $this->Auth->user('id');
+        //LOAD ACL COMPONENT
+        //$this->loadComponent('AccessControl');
+        //IF USER IS ALLOWED TO ACCESS REQUESTED RESOURCE
+        //var_dump($this->AccessControl->isAllowed($currentUserId));
+        
+        if ($currentUserId!='') {
+            
+            /*$this->loadComponent('Notification');
+            $this->loadComponent('Todo');
+
+            $notificationsArr = $this->Notification->getAllNotifications($this->request->session()->read('Auth.User.id'));
+            $totalNotification = $this->Notification->getTotalNotifications($this->request->session()->read('Auth.User.id'));
+            $moreNotification = $totalNotification - 6;
+            $todoArr = $this->Todo->getAllTodoNotifications($this->request->session()->read('Auth.User.id')); */
+        
+            $this->set('todoArr', $todoArr = []);
+            $this->set('notificationsArr', $notificationsArr = []);
+            $this->set('total', $totalNotification = 0);
+            $this->set('more', $moreNotification = []);
+        }
+
+        if (empty($_SERVER['HTTP_REFERER'])) {
+            $_SERVER['HTTP_REFERER'] = '';
+        }
+        
+        /*
+         * Enable the following component for recommended CakePHP security settings.
+         * see https://book.cakephp.org/3.0/en/controllers/components/security.html
+         */
+        //$this->loadComponent('Security');
+    }
+}
