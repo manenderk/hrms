@@ -53,7 +53,7 @@ ul.tclass-cell li span{
     </div>
     <div class="col-xs-3">
         <div class="input-group m-b">
-            <input type="text" placeholder="Search category here .." class="form-control input-sm" name="category" value = "<?php echo @ $_POST['category']; ?>">
+            <?= $this->Form->control('category', ['options' => $hrmsAssetCategories, 'label' => false, 'class="form-control input-sm', 'empty' => 'Search by category', 'value' => @$_POST['category']] ) ?>
             <span class="input-group-addon">
                 <button type="submit" class="tp-style"><i class="fa fa-search"></i>
                 </button>

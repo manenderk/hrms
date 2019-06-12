@@ -19,12 +19,38 @@ class HrmsAssetsController extends AppController
      */
     public function index()
     {
-        $this->paginate = [
-            'contain' => ['HrmsAssetCategories', 'Users']
-        ];
-        $hrmsAssets = $this->paginate($this->HrmsAssets);
+        $conditions = [];
+        if ($this->request->is('post')) {
+            if (!empty($this->request->getData('name'))) {
+                $conditions['name LIKE'] = '%' . $this->request->getData('name') . '%';
+            } 
 
-        $this->set(compact('hrmsAssets'));
+            if(!empty($this->request->getData('serial_number'))){
+                $conditions['serial_number LIKE'] = '%' . $this->request->getData('serial_number') . '%';
+            }
+   
+            if(!empty($this->request->getData('tag_number'))){
+                $conditions['tag_number LIKE'] = '%' . $this->request->getData('tag_number') . '%';
+            }
+
+            if(!empty($this->request->getData('category'))){
+                $conditions['asset_category_id'] = $this->request->getData('category');
+            }
+            else {
+                $asset_category = '';
+            }
+        }         
+        $this->paginate = [
+            'conditions' => $conditions,
+            'contain' => ['HrmsAssetCategories', 'Users'],
+            'order' => [
+                'name' => 'asc'
+            ]
+        ];
+
+        $hrmsAssets = $this->paginate($this->HrmsAssets);
+        $hrmsAssetCategories = $this->HrmsAssets->HrmsAssetCategories->find('list');
+        $this->set(compact('hrmsAssets', 'hrmsAssetCategories'));
     }
 
     /**
