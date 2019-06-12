@@ -75,7 +75,7 @@ class HrmsWorkSchedulesController extends AppController
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $hrmsWorkSchedule = $this->HrmsWorkSchedules->patchEntity($hrmsWorkSchedule, $this->request->getData());
-            $hrmsWorkSchedule['modified_by'] = $this->Auth->user('id');
+            $hrmsWorkSchedule['modifed_by'] = $this->Auth->user('id');
             if ($this->HrmsWorkSchedules->save($hrmsWorkSchedule)) {
                 $this->Flash->success(__('The hrms work schedule has been saved.'));
 

@@ -74,26 +74,26 @@
                         <?php
                         $days = [];
                         if ($hrmsWorkSchedule->monday == 1) {
-                            $days[] = 'Monday';
+                            $days[] = 'Monday - ' . $hrmsWorkSchedule->monday_hours;
                         }
                         if ($hrmsWorkSchedule->tuesday == 1) {
-                            $days[] = 'Tuesday';
+                            $days[] = 'Tuesday - ' . $hrmsWorkSchedule->tuesday_hours;
                         }
                         if ($hrmsWorkSchedule->wednesday == 1) {
-                            $days[] = 'Wednesday';
+                            $days[] = 'Wednesday - ' . $hrmsWorkSchedule->wednesday_hours;
                         }
 
                         if ($hrmsWorkSchedule->thursday == 1) {
-                            $days[] = 'Thursday';
+                            $days[] = 'Thursday - ' . $hrmsWorkSchedule->thursday_hours;
                         }
                         if ($hrmsWorkSchedule->friday == 1) {
-                            $days[] = 'Friday';
+                            $days[] = 'Friday - ' . $hrmsWorkSchedule->friday_hours;
                         }
                         if ($hrmsWorkSchedule->saturday == 1) {
-                            $days[] = 'Saturday';
+                            $days[] = 'Saturday - ' . $hrmsWorkSchedule->saturday_hours;
                         }
                         if ($hrmsWorkSchedule->sunday == 1) {
-                            $days[] = 'Sunday';
+                            $days[] = 'Sunday - ' . $hrmsWorkSchedule->sunday_hours;
                         }
                         echo implode(", ", $days);
                         ?>

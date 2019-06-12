@@ -4,7 +4,12 @@
  * @var \App\Model\Entity\HrmsWorkSchedule $hrmsWorkSchedule
  */
 ?>
-
+<style>
+    .message{
+        color: red;
+        min-height: 36px;
+    }
+</style>
 <div class="row">
     <div class="col-md-12">
         <div class="page-title">WORK SCHEDULES <small>Add Work Schedule</small>
@@ -25,7 +30,7 @@
         </div>
     </div>
 </div>
-<?= $this->Form->create($hrmsWorkSchedule) ?>
+<?= $this->Form->create($hrmsWorkSchedule, ['id' => 'work-schedule-form']) ?>
 <div class="wrapper bg-white atsborder">
     <!-- START panel-->
     <div class="panel-body">
@@ -45,24 +50,38 @@
         <div class="row">
             <div class="col-sm-2">
                 <?= $this->Form->control('monday'); ?>
+                <?= $this->Form->control('monday_hours', ['type' => 'text', 'class' => "form-control hours-input", 'required' => false]); ?>
+                <p class="message"></p>
             </div>
             <div class="col-sm-2">
                 <?= $this->Form->control('tuesday'); ?>
+                <?= $this->Form->control('tuesday_hours', ['type' => 'text', 'class' => "form-control hours-input", 'required' => false]); ?>
+                <p class="message"></p>
             </div>
             <div class="col-sm-2">
                 <?= $this->Form->control('wednesday'); ?>
+                <?= $this->Form->control('wednesday_hours', ['type' => 'text', 'class' => "form-control hours-input", 'required' => false]); ?>
+                <p class="message"></p>
             </div>
             <div class="col-sm-2">
                 <?= $this->Form->control('thursday'); ?>
+                <?= $this->Form->control('thursday_hours', ['type' => 'text', 'class' => "form-control hours-input", 'required' => false]); ?>
+                <p class="message"></p>
             </div>
             <div class="col-sm-2">
                 <?= $this->Form->control('friday'); ?>
+                <?= $this->Form->control('friday_hours', ['type' => 'text', 'class' => "form-control hours-input", 'required' => false]); ?>
+                <p class="message"></p>
             </div>
             <div class="col-sm-2">
                 <?= $this->Form->control('saturday'); ?>
+                <?= $this->Form->control('saturday_hours', ['type' => 'text', 'class' => "form-control hours-input", 'required' => false]); ?>
+                <p class="message"></p>
             </div>
             <div class="col-sm-2">
                 <?= $this->Form->control('sunday'); ?>
+                <?= $this->Form->control('sunday_hours', ['type' => 'text', 'class' => "form-control hours-input", 'required' => false]); ?>
+                <p class="message"></p>
             </div>
         </div>
         <div class="form-group row">
@@ -76,3 +95,29 @@
     </div>
 </div>
 <?= $this->Form->end() ?>
+
+<script>
+    $('#work-schedule-form').submit(function(e){
+        var decimalPattern = /(\d+)(\.)*(\d)*/;
+        var flag = false;
+        $('.hours-input').each(function(){
+            if($(this).val() == ''){
+                $(this).val('0');
+            }
+            //console.log(decimalPattern.test(parseFloat($(this).val())), $(this).val());
+            if(!decimalPattern.test(parseFloat($(this).val())) || parseFloat($(this).val()) > 24){
+                flag = true;
+                $(this).parent().siblings('.message').text('Enter valid hours');
+            }
+            else{
+                $(this).parent().siblings('.message').text('');
+            }           
+        })
+
+        if(flag){
+            e.preventDefault();
+        }
+        
+    });
+</script>
+

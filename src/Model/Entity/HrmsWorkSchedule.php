@@ -15,6 +15,13 @@ use Cake\ORM\Entity;
  * @property bool $friday
  * @property bool $saturday
  * @property bool $sunday
+ * @property float $monday_hours
+ * @property float $tuesday_hours
+ * @property float $wednesday_hours
+ * @property float $thursday_hours
+ * @property float $friday_hours
+ * @property float $saturday_hours
+ * @property float $sunday_hours
  * @property \Cake\I18n\FrozenTime $created
  * @property \Cake\I18n\FrozenTime $modified
  * @property int|null $created_by
@@ -40,6 +47,13 @@ class HrmsWorkSchedule extends Entity
         'friday' => true,
         'saturday' => true,
         'sunday' => true,
+        'monday_hours' => true,
+        'tuesday_hours' => true,
+        'wednesday_hours' => true,
+        'thursday_hours' => true,
+        'friday_hours' => true,
+        'saturday_hours' => true,
+        'sunday_hours' => true,
         'created' => true,
         'modified' => true,
         'created_by' => true,

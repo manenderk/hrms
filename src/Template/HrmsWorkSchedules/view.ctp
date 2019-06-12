@@ -53,34 +53,46 @@
     <div class="panel-body">
         <div class="col-xs-12">
             <h3>Work days</h3>
-            <table class="table">                           
+            <table class="table">  
+                <tr>
+                    <th>Day</th>
+                    <th>Working</th>
+                    <th>Hours</th>
+                </tr>                         
                 <tr>
                     <th scope="row"><?= __('Monday') ?></th>
                     <td><?= $hrmsWorkSchedule->monday ? __('Yes') : __('No'); ?></td>
+                    <td><?= $hrmsWorkSchedule->monday_hours ?></td>
                 </tr>
                 <tr>
                     <th scope="row"><?= __('Tuesday') ?></th>
                     <td><?= $hrmsWorkSchedule->tuesday ? __('Yes') : __('No'); ?></td>
+                    <td><?= $hrmsWorkSchedule->tuesday_hours ?></td>
                 </tr>
                 <tr>
                     <th scope="row"><?= __('Wednesday') ?></th>
                     <td><?= $hrmsWorkSchedule->wednesday ? __('Yes') : __('No'); ?></td>
+                    <td><?= $hrmsWorkSchedule->wednesday_hours ?></td>
                 </tr>
                 <tr>
                     <th scope="row"><?= __('Thursday') ?></th>
                     <td><?= $hrmsWorkSchedule->thursday ? __('Yes') : __('No'); ?></td>
+                    <td><?= $hrmsWorkSchedule->thursday_hours ?></td>
                 </tr>
                 <tr>
                     <th scope="row"><?= __('Friday') ?></th>
                     <td><?= $hrmsWorkSchedule->friday ? __('Yes') : __('No'); ?></td>
+                    <td><?= $hrmsWorkSchedule->friday_hours ?></td>
                 </tr>
                 <tr>
                     <th scope="row"><?= __('Saturday') ?></th>
                     <td><?= $hrmsWorkSchedule->saturday ? __('Yes') : __('No'); ?></td>
+                    <td><?= $hrmsWorkSchedule->saturday_hours ?></td>
                 </tr>
                 <tr>
                     <th scope="row"><?= __('Sunday') ?></th>
                     <td><?= $hrmsWorkSchedule->sunday ? __('Yes') : __('No'); ?></td>
+                    <td><?= $hrmsWorkSchedule->saturday_hours ?></td>
                 </tr>
             </table>
         </div>

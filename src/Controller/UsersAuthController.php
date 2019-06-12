@@ -143,6 +143,7 @@ class UsersAuthController extends AppController
                     $dataJson['url'] = "../job_requirements";
                 } */
                 $dataJson['url'] = Router::url(['controller' => 'dashboard']);
+                //$dataJson['url'] = $this->request->getData('redirect');
                 $dataJson['msg'] = "Authentication Successful!  Redirecting...";
                 echo json_encode($dataJson);
                 exit;

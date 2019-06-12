@@ -93,6 +93,48 @@ class HrmsWorkSchedulesTable extends Table
             ->allowEmptyString('sunday', false);
 
         $validator
+            ->numeric('monday_hours')
+            ->greaterThanOrEqual('monday_hours', 0)
+            ->requirePresence('monday_hours', 'create')
+            ->allowEmptyString('monday_hours', false);
+
+        $validator
+            ->numeric('tuesday_hours')
+            ->greaterThanOrEqual('tuesday_hours', 0)
+            ->requirePresence('tuesday_hours', 'create')
+            ->allowEmptyString('tuesday_hours', false);
+
+        $validator
+            ->numeric('wednesday_hours')
+            ->greaterThanOrEqual('wednesday_hours', 0)
+            ->requirePresence('wednesday_hours', 'create')
+            ->allowEmptyString('wednesday_hours', false);
+
+        $validator
+            ->numeric('thursday_hours')
+            ->greaterThanOrEqual('thursday_hours', 0)
+            ->requirePresence('thursday_hours', 'create')
+            ->allowEmptyString('thursday_hours', false);
+
+        $validator
+            ->numeric('friday_hours')
+            ->greaterThanOrEqual('friday_hours', 0)
+            ->requirePresence('friday_hours', 'create')
+            ->allowEmptyString('friday_hours', false);
+
+        $validator
+            ->numeric('saturday_hours')
+            ->greaterThanOrEqual('saturday_hours', 0)
+            ->requirePresence('saturday_hours', 'create')
+            ->allowEmptyString('saturday_hours', false);
+
+        $validator
+            ->numeric('sunday_hours')
+            ->greaterThanOrEqual('sunday_hours', 0)
+            ->requirePresence('sunday_hours', 'create')
+            ->allowEmptyString('sunday_hours', false);
+
+        $validator
             ->allowEmptyString('created_by');
 
         $validator
