@@ -15,13 +15,20 @@ use Cake\ORM\Entity;
  * @property bool $friday
  * @property bool $saturday
  * @property bool $sunday
- * @property float $monday_hours
- * @property float $tuesday_hours
- * @property float $wednesday_hours
- * @property float $thursday_hours
- * @property float $friday_hours
- * @property float $saturday_hours
- * @property float $sunday_hours
+ * @property string $monday_shift_start
+ * @property string $tuesday_shift_start
+ * @property string $wednesday_shift_start
+ * @property string $thursday_shift_start
+ * @property string $friday_shift_start
+ * @property string $saturday_shift_start
+ * @property string $sunday_shift_start
+ * @property string $monday_shift_end
+ * @property string $tuesday_shift_end
+ * @property string $wednesday_shift_end
+ * @property string $thursday_shift_end
+ * @property string $friday_shift_end
+ * @property string $saturday_shift_end
+ * @property string $sunday_shift_end
  * @property \Cake\I18n\FrozenTime $created
  * @property \Cake\I18n\FrozenTime $modified
  * @property int|null $created_by
@@ -47,13 +54,20 @@ class HrmsWorkSchedule extends Entity
         'friday' => true,
         'saturday' => true,
         'sunday' => true,
-        'monday_hours' => true,
-        'tuesday_hours' => true,
-        'wednesday_hours' => true,
-        'thursday_hours' => true,
-        'friday_hours' => true,
-        'saturday_hours' => true,
-        'sunday_hours' => true,
+        'monday_shift_start' => true,
+        'tuesday_shift_start' => true,
+        'wednesday_shift_start' => true,
+        'thursday_shift_start' => true,
+        'friday_shift_start' => true,
+        'saturday_shift_start' => true,
+        'sunday_shift_start' => true,
+        'monday_shift_end' => true,
+        'tuesday_shift_end' => true,
+        'wednesday_shift_end' => true,
+        'thursday_shift_end' => true,
+        'friday_shift_end' => true,
+        'saturday_shift_end' => true,
+        'sunday_shift_end' => true,
         'created' => true,
         'modified' => true,
         'created_by' => true,

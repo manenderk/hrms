@@ -16667,7 +16667,10 @@ body{ font-size:12px;}
  .panel-mbtm{ margin-bottom:20px;}
 
 
-
+.wizard > .content{
+    overflow-y: scroll;
+    min-height: 60vh;
+}
 
 
 

@@ -93,46 +93,88 @@ class HrmsWorkSchedulesTable extends Table
             ->allowEmptyString('sunday', false);
 
         $validator
-            ->numeric('monday_hours')
-            ->greaterThanOrEqual('monday_hours', 0)
-            ->requirePresence('monday_hours', 'create')
-            ->allowEmptyString('monday_hours', false);
+            ->scalar('monday_shift_start')
+            ->maxLength('monday_shift_start', 24)
+            ->requirePresence('monday_shift_start', 'create')
+            ->allowEmptyString('monday_shift_start', false);
 
         $validator
-            ->numeric('tuesday_hours')
-            ->greaterThanOrEqual('tuesday_hours', 0)
-            ->requirePresence('tuesday_hours', 'create')
-            ->allowEmptyString('tuesday_hours', false);
+            ->scalar('tuesday_shift_start')
+            ->maxLength('tuesday_shift_start', 24)
+            ->requirePresence('tuesday_shift_start', 'create')
+            ->allowEmptyString('tuesday_shift_start', false);
 
         $validator
-            ->numeric('wednesday_hours')
-            ->greaterThanOrEqual('wednesday_hours', 0)
-            ->requirePresence('wednesday_hours', 'create')
-            ->allowEmptyString('wednesday_hours', false);
+            ->scalar('wednesday_shift_start')
+            ->maxLength('wednesday_shift_start', 24)
+            ->requirePresence('wednesday_shift_start', 'create')
+            ->allowEmptyString('wednesday_shift_start', false);
 
         $validator
-            ->numeric('thursday_hours')
-            ->greaterThanOrEqual('thursday_hours', 0)
-            ->requirePresence('thursday_hours', 'create')
-            ->allowEmptyString('thursday_hours', false);
+            ->scalar('thursday_shift_start')
+            ->maxLength('thursday_shift_start', 24)
+            ->requirePresence('thursday_shift_start', 'create')
+            ->allowEmptyString('thursday_shift_start', false);
 
         $validator
-            ->numeric('friday_hours')
-            ->greaterThanOrEqual('friday_hours', 0)
-            ->requirePresence('friday_hours', 'create')
-            ->allowEmptyString('friday_hours', false);
+            ->scalar('friday_shift_start')
+            ->maxLength('friday_shift_start', 24)
+            ->requirePresence('friday_shift_start', 'create')
+            ->allowEmptyString('friday_shift_start', false);
 
         $validator
-            ->numeric('saturday_hours')
-            ->greaterThanOrEqual('saturday_hours', 0)
-            ->requirePresence('saturday_hours', 'create')
-            ->allowEmptyString('saturday_hours', false);
+            ->scalar('saturday_shift_start')
+            ->maxLength('saturday_shift_start', 24)
+            ->requirePresence('saturday_shift_start', 'create')
+            ->allowEmptyString('saturday_shift_start', false);
 
         $validator
-            ->numeric('sunday_hours')
-            ->greaterThanOrEqual('sunday_hours', 0)
-            ->requirePresence('sunday_hours', 'create')
-            ->allowEmptyString('sunday_hours', false);
+            ->scalar('sunday_shift_start')
+            ->maxLength('sunday_shift_start', 24)
+            ->requirePresence('sunday_shift_start', 'create')
+            ->allowEmptyString('sunday_shift_start', false);
+
+        $validator
+            ->scalar('monday_shift_end')
+            ->maxLength('monday_shift_end', 24)
+            ->requirePresence('monday_shift_end', 'create')
+            ->allowEmptyString('monday_shift_end', false);
+
+        $validator
+            ->scalar('tuesday_shift_end')
+            ->maxLength('tuesday_shift_end', 24)
+            ->requirePresence('tuesday_shift_end', 'create')
+            ->allowEmptyString('tuesday_shift_end', false);
+
+        $validator
+            ->scalar('wednesday_shift_end')
+            ->maxLength('wednesday_shift_end', 24)
+            ->requirePresence('wednesday_shift_end', 'create')
+            ->allowEmptyString('wednesday_shift_end', false);
+
+        $validator
+            ->scalar('thursday_shift_end')
+            ->maxLength('thursday_shift_end', 24)
+            ->requirePresence('thursday_shift_end', 'create')
+            ->allowEmptyString('thursday_shift_end', false);
+
+        $validator
+            ->scalar('friday_shift_end')
+            ->maxLength('friday_shift_end', 24)
+            ->requirePresence('friday_shift_end', 'create')
+            ->allowEmptyString('friday_shift_end', false);
+
+        $validator
+            ->scalar('saturday_shift_end')
+            ->maxLength('saturday_shift_end', 24)
+            ->requirePresence('saturday_shift_end', 'create')
+            ->allowEmptyString('saturday_shift_end', false);
+
+        $validator
+            ->scalar('sunday_shift_end')
+            ->maxLength('sunday_shift_end', 24)
+            ->requirePresence('sunday_shift_end', 'create')
+            ->allowEmptyString('sunday_shift_end', false);
 
         $validator
             ->allowEmptyString('created_by');

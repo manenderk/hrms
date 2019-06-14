@@ -4,141 +4,94 @@
  * @var \App\Model\Entity\HrmsWorkSchedule[]|\Cake\Collection\CollectionInterface $hrmsWorkSchedules
  */
 ?>
-<div class="row">
-    <div class="col-md-12">
-        <div class="page-title">WORK SCHEDULES
-            <span class="pull-right short-ico">
-                <a
-                    href="<?php echo $_SERVER["HTTP_REFERER"]; ?>">
-                    <button type="button" class="btn btn-labeled btn-default">
-                        <span class="btn-label"><i class="fa fa-hand-o-left"></i>
-                        </span>Back</button>
-                </a>
-                <!-- TODO: HIDE THIS AS PER ACL -->
-                <a
-                    href="<?php echo $this->Url->build(["controller" => "hrms-work-schedules", "action" => "add"]); ?>">
-                    <button type="button" class="btn btn-labeled btn-default">
-                        <span class="btn-label"><i class="fa fa-plus"></i>
-                        </span>Add</button>
-                </a>
-            </span>
-        </div>
-    </div>
-</div>
-
-<?php echo $this->Form->create('work-schedule-form', ['role'=>'form', 'url'=>['action' =>'index']]); ?>
-<div class="panel panel-body atsborder m-lr">
-    <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
-        <div class="input-group m-b">
-            <input type="text" placeholder="Search schedule here .." class="form-control input-sm" name="name" value = "<?php echo @ $_POST['name']; ?>">
-            <span class="input-group-addon">
-                <button type="submit" class="tp-style"><i class="fa fa-search"></i>
-                </button>
-            </span>
-        </div>
-    </div>
-</div>
-<?php echo $this->Form->end(); ?>
-<div class="rTable" id="work-schedule">
-    <div class="rTableRow">
-        <ul class="tclass-head">
-            <li>
-                <span>
-                    <div class="rTableHead"><?=$this->Paginator->sort('schedule_name', "Schedule Name <em class='fa fa-sort-alpha-desc'></em>", ['escape' => false]);?>
-                    </div>
-                </span>                
-                <span>
-                    <div class="rTableHead">Workdays
-                    </div>
-                </span>                
-                <!-- TODO: HIDE THIS AS PER ACL -->
-                <span>
-                    <div class="rTableHead">&nbsp;</div>
-                </span>
-            </li>
-        </ul>
-    </div>
-
-    <div class="rTableRow" id="newrow">
-        <ul class="tclass-cell">
-            <?php foreach ($hrmsWorkSchedules as $hrmsWorkSchedule): ?>
-            <li>
-                <span>
-                    <div class="rTableCell">
-                        <a href="<?php echo $this->Url->build(["controller" => "hrms-work-schedules", "action" => "view", $hrmsWorkSchedule->id]); ?>"
-                            title="Click here to view this schedule" data-toggle="tooltip" data-placement="bottom"><?= h($hrmsWorkSchedule->schedule_name) ?></a>
-                    </div>
-                </span>
-                <span>
-                    <div class="rTableCell">
-                        <?php
-                        $days = [];
-                        if ($hrmsWorkSchedule->monday == 1) {
-                            $days[] = 'Monday - ' . $hrmsWorkSchedule->monday_hours;
-                        }
-                        if ($hrmsWorkSchedule->tuesday == 1) {
-                            $days[] = 'Tuesday - ' . $hrmsWorkSchedule->tuesday_hours;
-                        }
-                        if ($hrmsWorkSchedule->wednesday == 1) {
-                            $days[] = 'Wednesday - ' . $hrmsWorkSchedule->wednesday_hours;
-                        }
-
-                        if ($hrmsWorkSchedule->thursday == 1) {
-                            $days[] = 'Thursday - ' . $hrmsWorkSchedule->thursday_hours;
-                        }
-                        if ($hrmsWorkSchedule->friday == 1) {
-                            $days[] = 'Friday - ' . $hrmsWorkSchedule->friday_hours;
-                        }
-                        if ($hrmsWorkSchedule->saturday == 1) {
-                            $days[] = 'Saturday - ' . $hrmsWorkSchedule->saturday_hours;
-                        }
-                        if ($hrmsWorkSchedule->sunday == 1) {
-                            $days[] = 'Sunday - ' . $hrmsWorkSchedule->sunday_hours;
-                        }
-                        echo implode(", ", $days);
-                        ?>
-                    </div>
-                </span>
-
-                
-                <!-- TODO: HIDE THIS AS PER ACL -->
-                <span>
-                    <div class="rTableCell">
-                        <a href="<?php echo $this->Url->build(["controller" => "hrms-work-schedules", "action" => "edit",$hrmsWorkSchedule->id]); ?>"
-                            title="Edit">
-                            <em class="fa fa-pencil-square-o pull-right" title="Click to edit this schedle"
-                                data-toggle="tooltip" data-placement="left"></em>
-                        </a>
-                    </div>
-                </span>                
-            </li>
-            <?php endforeach; ?>
-        </ul>
-
-    </div>
-
-
-</div>
-<!--rTable end here-->
-<div class="paginator">
-    <ul class="pagination">
-        <?php echo $this->Paginator->next('Show more work schedules...'); ?>
+<nav class="large-3 medium-4 columns" id="actions-sidebar">
+    <ul class="side-nav">
+        <li class="heading"><?= __('Actions') ?></li>
+        <li><?= $this->Html->link(__('New Hrms Work Schedule'), ['action' => 'add']) ?></li>
     </ul>
+</nav>
+<div class="hrmsWorkSchedules index large-9 medium-8 columns content">
+    <h3><?= __('Hrms Work Schedules') ?></h3>
+    <table cellpadding="0" cellspacing="0">
+        <thead>
+            <tr>
+                <th scope="col"><?= $this->Paginator->sort('id') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('schedule_name') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('monday') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('tuesday') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('wednesday') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('thursday') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('friday') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('saturday') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('sunday') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('monday_shift_start') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('tuesday_shift_start') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('wednesday_shift_start') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('thursday_shift_start') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('friday_shift_start') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('saturday_shift_start') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('sunday_shift_start') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('monday_shift_end') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('tuesday_shift_end') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('wednesday_shift_end') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('thursday_shift_end') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('friday_shift_end') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('saturday_shift_end') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('sunday_shift_end') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('created') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('modified') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('created_by') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('modifed_by') ?></th>
+                <th scope="col" class="actions"><?= __('Actions') ?></th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($hrmsWorkSchedules as $hrmsWorkSchedule): ?>
+            <tr>
+                <td><?= $this->Number->format($hrmsWorkSchedule->id) ?></td>
+                <td><?= h($hrmsWorkSchedule->schedule_name) ?></td>
+                <td><?= h($hrmsWorkSchedule->monday) ?></td>
+                <td><?= h($hrmsWorkSchedule->tuesday) ?></td>
+                <td><?= h($hrmsWorkSchedule->wednesday) ?></td>
+                <td><?= h($hrmsWorkSchedule->thursday) ?></td>
+                <td><?= h($hrmsWorkSchedule->friday) ?></td>
+                <td><?= h($hrmsWorkSchedule->saturday) ?></td>
+                <td><?= h($hrmsWorkSchedule->sunday) ?></td>
+                <td><?= h($hrmsWorkSchedule->monday_shift_start) ?></td>
+                <td><?= h($hrmsWorkSchedule->tuesday_shift_start) ?></td>
+                <td><?= h($hrmsWorkSchedule->wednesday_shift_start) ?></td>
+                <td><?= h($hrmsWorkSchedule->thursday_shift_start) ?></td>
+                <td><?= h($hrmsWorkSchedule->friday_shift_start) ?></td>
+                <td><?= h($hrmsWorkSchedule->saturday_shift_start) ?></td>
+                <td><?= h($hrmsWorkSchedule->sunday_shift_start) ?></td>
+                <td><?= h($hrmsWorkSchedule->monday_shift_end) ?></td>
+                <td><?= h($hrmsWorkSchedule->tuesday_shift_end) ?></td>
+                <td><?= h($hrmsWorkSchedule->wednesday_shift_end) ?></td>
+                <td><?= h($hrmsWorkSchedule->thursday_shift_end) ?></td>
+                <td><?= h($hrmsWorkSchedule->friday_shift_end) ?></td>
+                <td><?= h($hrmsWorkSchedule->saturday_shift_end) ?></td>
+                <td><?= h($hrmsWorkSchedule->sunday_shift_end) ?></td>
+                <td><?= h($hrmsWorkSchedule->created) ?></td>
+                <td><?= h($hrmsWorkSchedule->modified) ?></td>
+                <td><?= $this->Number->format($hrmsWorkSchedule->created_by) ?></td>
+                <td><?= $this->Number->format($hrmsWorkSchedule->modifed_by) ?></td>
+                <td class="actions">
+                    <?= $this->Html->link(__('View'), ['action' => 'view', $hrmsWorkSchedule->id]) ?>
+                    <?= $this->Html->link(__('Edit'), ['action' => 'edit', $hrmsWorkSchedule->id]) ?>
+                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $hrmsWorkSchedule->id], ['confirm' => __('Are you sure you want to delete # {0}?', $hrmsWorkSchedule->id)]) ?>
+                </td>
+            </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+    <div class="paginator">
+        <ul class="pagination">
+            <?= $this->Paginator->first('<< ' . __('first')) ?>
+            <?= $this->Paginator->prev('< ' . __('previous')) ?>
+            <?= $this->Paginator->numbers() ?>
+            <?= $this->Paginator->next(__('next') . ' >') ?>
+            <?= $this->Paginator->last(__('last') . ' >>') ?>
+        </ul>
+        <p><?= $this->Paginator->counter(['format' => __('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')]) ?></p>
+    </div>
 </div>
-<script>
-    // For unlimited scrolling by user
-    $(function() {
-        var $container = $('#newrow');
-        $container.infinitescroll({
-            navSelector: '.next', // selector for the paged navigation 
-            nextSelector: '.next a', // selector for the NEXT link (to page 2)
-            itemSelector: '#newrow', // selector for all items you'll retrieve
-            debug: true,
-            dataType: 'html',
-            loading: {
-                finishedMsg: 'No more departments',
-                img: 'img/spinner.gif'
-            }
-        });
-    });
-</script>

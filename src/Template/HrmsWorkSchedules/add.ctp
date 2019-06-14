@@ -48,40 +48,80 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-sm-2">
+            <div class="col-sm-4">
                 <?= $this->Form->control('monday'); ?>
-                <?= $this->Form->control('monday_hours', ['type' => 'text', 'class' => "form-control hours-input", 'required' => false]); ?>
-                <p class="message"></p>
             </div>
-            <div class="col-sm-2">
+            <div class="col-sm-4">
+                <?= $this->Form->control('monday_shift_start', ['type' => 'text', 'class' => "form-control hours-input", 'required' => true]); ?>
+            </div>
+            <div class="col-sm-4">
+                <?= $this->Form->control('monday_shift_end', ['type' => 'text', 'class' => "form-control hours-input", 'required' => true]); ?>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4">
                 <?= $this->Form->control('tuesday'); ?>
-                <?= $this->Form->control('tuesday_hours', ['type' => 'text', 'class' => "form-control hours-input", 'required' => false]); ?>
-                <p class="message"></p>
             </div>
-            <div class="col-sm-2">
+            <div class="col-sm-4">
+                <?= $this->Form->control('tuesday_shift_start', ['type' => 'text', 'class' => "form-control hours-input", 'required' => true]); ?>                
+            </div>
+            <div class="col-sm-4">
+                <?= $this->Form->control('tuesday_shift_end', ['type' => 'text', 'class' => "form-control hours-input", 'required' => true]); ?>                
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4">
                 <?= $this->Form->control('wednesday'); ?>
-                <?= $this->Form->control('wednesday_hours', ['type' => 'text', 'class' => "form-control hours-input", 'required' => false]); ?>
-                <p class="message"></p>
             </div>
-            <div class="col-sm-2">
+            <div class="col-sm-4">
+                <?= $this->Form->control('wednesday_shift_start', ['type' => 'text', 'class' => "form-control hours-input", 'required' => true]); ?>
+            </div>
+            <div class="col-sm-4">
+                <?= $this->Form->control('wednesday_shift_end', ['type' => 'text', 'class' => "form-control hours-input", 'required' => true]); ?>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4">
                 <?= $this->Form->control('thursday'); ?>
-                <?= $this->Form->control('thursday_hours', ['type' => 'text', 'class' => "form-control hours-input", 'required' => false]); ?>
-                <p class="message"></p>
             </div>
-            <div class="col-sm-2">
+            <div class="col-sm-4">
+                <?= $this->Form->control('thursday_shift_start', ['type' => 'text', 'class' => "form-control hours-input", 'required' => true]); ?>
+            </div>
+            <div class="col-sm-4">
+                <?= $this->Form->control('thursday_shift_end', ['type' => 'text', 'class' => "form-control hours-input", 'required' => true]); ?>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4">
                 <?= $this->Form->control('friday'); ?>
-                <?= $this->Form->control('friday_hours', ['type' => 'text', 'class' => "form-control hours-input", 'required' => false]); ?>
-                <p class="message"></p>
             </div>
-            <div class="col-sm-2">
+            <div class="col-sm-4">
+                <?= $this->Form->control('friday_shift_start', ['type' => 'text', 'class' => "form-control hours-input", 'required' => true]); ?>
+            </div>
+            <div class="col-sm-4">
+                <?= $this->Form->control('friday_shift_end', ['type' => 'text', 'class' => "form-control hours-input", 'required' => true]); ?>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4">
                 <?= $this->Form->control('saturday'); ?>
-                <?= $this->Form->control('saturday_hours', ['type' => 'text', 'class' => "form-control hours-input", 'required' => false]); ?>
-                <p class="message"></p>
             </div>
-            <div class="col-sm-2">
+            <div class="col-sm-4">
+                <?= $this->Form->control('saturday_shift_start', ['type' => 'text', 'class' => "form-control hours-input", 'required' => true]); ?>            
+            </div>
+            <div class="col-sm-4">
+                <?= $this->Form->control('saturday_shift_end', ['type' => 'text', 'class' => "form-control hours-input", 'required' => true]); ?>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4">
                 <?= $this->Form->control('sunday'); ?>
-                <?= $this->Form->control('sunday_hours', ['type' => 'text', 'class' => "form-control hours-input", 'required' => false]); ?>
-                <p class="message"></p>
+            </div>
+            <div class="col-sm-4">
+                <?= $this->Form->control('sunday_shift_start', ['type' => 'text', 'class' => "form-control hours-input", 'required' => true]); ?>
+            </div>
+            <div class="col-sm-4">
+                <?= $this->Form->control('sunday_shift_end', ['type' => 'text', 'class' => "form-control hours-input", 'required' => true]); ?>
             </div>
         </div>
         <div class="form-group row">
@@ -120,4 +160,5 @@
         
     });
 </script>
+
 

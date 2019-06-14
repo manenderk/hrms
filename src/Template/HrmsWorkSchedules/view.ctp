@@ -4,97 +4,125 @@
  * @var \App\Model\Entity\HrmsWorkSchedule $hrmsWorkSchedule
  */
 ?>
-<div class="row">
-    <div class="col-md-12">
-        <div class="page-title">Work Schedule
-            <span class="pull-right short-ico">
-
-                <a href="<?php echo $_SERVER["HTTP_REFERER"]; ?>"
-                    title="Back">
-                    <button class="btn btn-labeled btn-default" type="button">
-                        <span class="btn-label"><i class="fa fa-hand-o-left"></i>
-                        </span>Back</button>
-                </a>
-                <!-- TODO: HIDE THIS AS PER ACL -->
-                <a href="<?php echo $this->Url->build(["controller" => "hrms-work-schedules", "action" => "edit",$hrmsWorkSchedule->id]); ?>"
-                    title="Edit">
-                    <button class="btn btn-labeled btn-default" type="button">Edit
-                        <span class="btn-label btn-label-right"><i class="fa fa-pencil-square-o"></i>
-                        </span>
-                    </button>
-                </a>
-            </span>
-        </div>
-    </div>
+<nav class="large-3 medium-4 columns" id="actions-sidebar">
+    <ul class="side-nav">
+        <li class="heading"><?= __('Actions') ?></li>
+        <li><?= $this->Html->link(__('Edit Hrms Work Schedule'), ['action' => 'edit', $hrmsWorkSchedule->id]) ?> </li>
+        <li><?= $this->Form->postLink(__('Delete Hrms Work Schedule'), ['action' => 'delete', $hrmsWorkSchedule->id], ['confirm' => __('Are you sure you want to delete # {0}?', $hrmsWorkSchedule->id)]) ?> </li>
+        <li><?= $this->Html->link(__('List Hrms Work Schedules'), ['action' => 'index']) ?> </li>
+        <li><?= $this->Html->link(__('New Hrms Work Schedule'), ['action' => 'add']) ?> </li>
+    </ul>
+</nav>
+<div class="hrmsWorkSchedules view large-9 medium-8 columns content">
+    <h3><?= h($hrmsWorkSchedule->id) ?></h3>
+    <table class="vertical-table">
+        <tr>
+            <th scope="row"><?= __('Schedule Name') ?></th>
+            <td><?= h($hrmsWorkSchedule->schedule_name) ?></td>
+        </tr>
+        <tr>
+            <th scope="row"><?= __('Monday Shift Start') ?></th>
+            <td><?= h($hrmsWorkSchedule->monday_shift_start) ?></td>
+        </tr>
+        <tr>
+            <th scope="row"><?= __('Tuesday Shift Start') ?></th>
+            <td><?= h($hrmsWorkSchedule->tuesday_shift_start) ?></td>
+        </tr>
+        <tr>
+            <th scope="row"><?= __('Wednesday Shift Start') ?></th>
+            <td><?= h($hrmsWorkSchedule->wednesday_shift_start) ?></td>
+        </tr>
+        <tr>
+            <th scope="row"><?= __('Thursday Shift Start') ?></th>
+            <td><?= h($hrmsWorkSchedule->thursday_shift_start) ?></td>
+        </tr>
+        <tr>
+            <th scope="row"><?= __('Friday Shift Start') ?></th>
+            <td><?= h($hrmsWorkSchedule->friday_shift_start) ?></td>
+        </tr>
+        <tr>
+            <th scope="row"><?= __('Saturday Shift Start') ?></th>
+            <td><?= h($hrmsWorkSchedule->saturday_shift_start) ?></td>
+        </tr>
+        <tr>
+            <th scope="row"><?= __('Sunday Shift Start') ?></th>
+            <td><?= h($hrmsWorkSchedule->sunday_shift_start) ?></td>
+        </tr>
+        <tr>
+            <th scope="row"><?= __('Monday Shift End') ?></th>
+            <td><?= h($hrmsWorkSchedule->monday_shift_end) ?></td>
+        </tr>
+        <tr>
+            <th scope="row"><?= __('Tuesday Shift End') ?></th>
+            <td><?= h($hrmsWorkSchedule->tuesday_shift_end) ?></td>
+        </tr>
+        <tr>
+            <th scope="row"><?= __('Wednesday Shift End') ?></th>
+            <td><?= h($hrmsWorkSchedule->wednesday_shift_end) ?></td>
+        </tr>
+        <tr>
+            <th scope="row"><?= __('Thursday Shift End') ?></th>
+            <td><?= h($hrmsWorkSchedule->thursday_shift_end) ?></td>
+        </tr>
+        <tr>
+            <th scope="row"><?= __('Friday Shift End') ?></th>
+            <td><?= h($hrmsWorkSchedule->friday_shift_end) ?></td>
+        </tr>
+        <tr>
+            <th scope="row"><?= __('Saturday Shift End') ?></th>
+            <td><?= h($hrmsWorkSchedule->saturday_shift_end) ?></td>
+        </tr>
+        <tr>
+            <th scope="row"><?= __('Sunday Shift End') ?></th>
+            <td><?= h($hrmsWorkSchedule->sunday_shift_end) ?></td>
+        </tr>
+        <tr>
+            <th scope="row"><?= __('Id') ?></th>
+            <td><?= $this->Number->format($hrmsWorkSchedule->id) ?></td>
+        </tr>
+        <tr>
+            <th scope="row"><?= __('Created By') ?></th>
+            <td><?= $this->Number->format($hrmsWorkSchedule->created_by) ?></td>
+        </tr>
+        <tr>
+            <th scope="row"><?= __('Modifed By') ?></th>
+            <td><?= $this->Number->format($hrmsWorkSchedule->modifed_by) ?></td>
+        </tr>
+        <tr>
+            <th scope="row"><?= __('Created') ?></th>
+            <td><?= h($hrmsWorkSchedule->created) ?></td>
+        </tr>
+        <tr>
+            <th scope="row"><?= __('Modified') ?></th>
+            <td><?= h($hrmsWorkSchedule->modified) ?></td>
+        </tr>
+        <tr>
+            <th scope="row"><?= __('Monday') ?></th>
+            <td><?= $hrmsWorkSchedule->monday ? __('Yes') : __('No'); ?></td>
+        </tr>
+        <tr>
+            <th scope="row"><?= __('Tuesday') ?></th>
+            <td><?= $hrmsWorkSchedule->tuesday ? __('Yes') : __('No'); ?></td>
+        </tr>
+        <tr>
+            <th scope="row"><?= __('Wednesday') ?></th>
+            <td><?= $hrmsWorkSchedule->wednesday ? __('Yes') : __('No'); ?></td>
+        </tr>
+        <tr>
+            <th scope="row"><?= __('Thursday') ?></th>
+            <td><?= $hrmsWorkSchedule->thursday ? __('Yes') : __('No'); ?></td>
+        </tr>
+        <tr>
+            <th scope="row"><?= __('Friday') ?></th>
+            <td><?= $hrmsWorkSchedule->friday ? __('Yes') : __('No'); ?></td>
+        </tr>
+        <tr>
+            <th scope="row"><?= __('Saturday') ?></th>
+            <td><?= $hrmsWorkSchedule->saturday ? __('Yes') : __('No'); ?></td>
+        </tr>
+        <tr>
+            <th scope="row"><?= __('Sunday') ?></th>
+            <td><?= $hrmsWorkSchedule->sunday ? __('Yes') : __('No'); ?></td>
+        </tr>
+    </table>
 </div>
-<div class="panel widget">
-    <div class="panel-body">
-        <div class="col-xs-12 pnl-pl">
-            <!-- START panel-->
-            <div class="panel panel-primary pnl-mb">
-                <div class="panel-heading">
-                    <div class="row">
-                        <div class="col-xs-3">
-                            <em class="fa fa-globe fa-5x"></em>
-                        </div>
-                        <div class="col-xs-9 text-right">
-                            <div class="text-md">Schedule Name</div>
-                            <p class="m0"><?= h($hrmsWorkSchedule->schedule_name) ?>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <!-- END panel-->
-            </div>
-        </div>
-    </div>
-</div>
-<div class="panel widget">
-    <div class="panel-body">
-        <div class="col-xs-12">
-            <h3>Work days</h3>
-            <table class="table">  
-                <tr>
-                    <th>Day</th>
-                    <th>Working</th>
-                    <th>Hours</th>
-                </tr>                         
-                <tr>
-                    <th scope="row"><?= __('Monday') ?></th>
-                    <td><?= $hrmsWorkSchedule->monday ? __('Yes') : __('No'); ?></td>
-                    <td><?= $hrmsWorkSchedule->monday_hours ?></td>
-                </tr>
-                <tr>
-                    <th scope="row"><?= __('Tuesday') ?></th>
-                    <td><?= $hrmsWorkSchedule->tuesday ? __('Yes') : __('No'); ?></td>
-                    <td><?= $hrmsWorkSchedule->tuesday_hours ?></td>
-                </tr>
-                <tr>
-                    <th scope="row"><?= __('Wednesday') ?></th>
-                    <td><?= $hrmsWorkSchedule->wednesday ? __('Yes') : __('No'); ?></td>
-                    <td><?= $hrmsWorkSchedule->wednesday_hours ?></td>
-                </tr>
-                <tr>
-                    <th scope="row"><?= __('Thursday') ?></th>
-                    <td><?= $hrmsWorkSchedule->thursday ? __('Yes') : __('No'); ?></td>
-                    <td><?= $hrmsWorkSchedule->thursday_hours ?></td>
-                </tr>
-                <tr>
-                    <th scope="row"><?= __('Friday') ?></th>
-                    <td><?= $hrmsWorkSchedule->friday ? __('Yes') : __('No'); ?></td>
-                    <td><?= $hrmsWorkSchedule->friday_hours ?></td>
-                </tr>
-                <tr>
-                    <th scope="row"><?= __('Saturday') ?></th>
-                    <td><?= $hrmsWorkSchedule->saturday ? __('Yes') : __('No'); ?></td>
-                    <td><?= $hrmsWorkSchedule->saturday_hours ?></td>
-                </tr>
-                <tr>
-                    <th scope="row"><?= __('Sunday') ?></th>
-                    <td><?= $hrmsWorkSchedule->sunday ? __('Yes') : __('No'); ?></td>
-                    <td><?= $hrmsWorkSchedule->saturday_hours ?></td>
-                </tr>
-            </table>
-        </div>
-    </div>
-</div>    
