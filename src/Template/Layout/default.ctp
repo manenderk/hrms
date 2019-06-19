@@ -555,14 +555,14 @@ if (isset($_GET['keywords']) && $_GET['keywords']!='') {
                             <ul id="employee" class="nav sidebar-subnav collapse">
                                 <li class="sidebar-subnav-header">Employees</li>
                                 <li>
-                                    <a href="<?=$this->Url->build(["controller" => "Employees","action" => "index"]);?>"
+                                    <a href="<?=$this->Url->build(["controller" => "EmployeesDetails","action" => "index"]);?>"
                                         title="Employees List">
                                         <em class="fa fa-list"></em>
                                         <span data-localize="sidebar.nav.element.BUTTON">Employees List</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="<?=$this->Url->build(["controller" => "Employees","action" => "add"]);?>"
+                                    <a href="<?=$this->Url->build(["controller" => "EmployeesDetails","action" => "add"]);?>"
                                         title="Add new Employee">
                                         <em class="fa fa-plus-circle"></em>
                                         <span data-localize="sidebar.nav.element.BUTTON">Add new Employee</span>
@@ -570,7 +570,7 @@ if (isset($_GET['keywords']) && $_GET['keywords']!='') {
                                 </li>                                
                             </ul>
                         </li>
-                        <li class="animated rollIn">
+                        <!-- <li class="animated rollIn">
                             <a href="#hrms-master" title="HRMS Master" data-toggle="collapse">
                                 <em class="fa fa-magnet -wrench animated"></em>
                                 <span data-localize="sidebar.nav.hrms_master">HRMS MASTERS</span>
@@ -599,7 +599,7 @@ if (isset($_GET['keywords']) && $_GET['keywords']!='') {
                                     </a>
                                 </li>                                
                             </ul>
-                        </li>
+                        </li> -->
                         <li>
                             <a href="<?=$this->Url->build(["controller" => "Users","action" => "rtr"]);?>"
                                 title="RTR Form">

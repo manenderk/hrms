@@ -18,6 +18,7 @@
  * @license       https://opensource.org/licenses/mit-license.php MIT License
  */
 use Cake\Http\Middleware\CsrfProtectionMiddleware;
+use Cake\Core\Plugin;
 use Cake\Routing\RouteBuilder;
 use Cake\Routing\Router;
 use Cake\Routing\Route\DashedRoute;
@@ -44,6 +45,15 @@ use Cake\Routing\Route\DashedRoute;
  *
  */
 Router::defaultRouteClass(DashedRoute::class);
+
+Router::prefix('api', function ($routes) {
+    $routes->setExtensions(['json', 'xml']);
+    $routes->resources('EmployeesDetails');
+    $routes->resources('EmployeeTypes');
+    $routes->fallbacks(DashedRoute::class);
+
+});
+
 
 Router::scope('/', function (RouteBuilder $routes) {
     // Register scoped middleware for in scopes.
