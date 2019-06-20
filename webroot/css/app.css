@@ -15982,7 +15982,7 @@ float: none;
 transition: border-left-color 0.4s ease 0s;
 }
 
-.sidebar > .nav > li a:hover { background:#545454; color:#fff !important;}
+.sidebar > .nav > li a:hover { background:#545454 !important; color:#fff !important;}
 ul#profile li { font-size:12px;}
 ul#profile li a:hover { background:#545454 !important; color:#fff !important;}
 

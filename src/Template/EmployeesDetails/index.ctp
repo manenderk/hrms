@@ -55,7 +55,7 @@
         <table id="employees" class="table table-bordered table-hover">
             <thead class="bg-gray">
                 <tr>
-                    <th><?= $this->Paginator->sort('employee_id') ?>
+                    <th><?= $this->Paginator->sort('employee_id', 'Employee ID') ?>
                     </th>
                     <th><?= $this->Paginator->sort('email') ?>
                     </th>
