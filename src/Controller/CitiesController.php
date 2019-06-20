@@ -114,7 +114,7 @@ class CitiesController extends AppController
     public function getCitiesOfState(){
         if( !empty($this->request->getData('state_id'))){
             $stateId = $this->request->getData('state_id');
-            $cities = $this->Cities->find()->select(['id', 'city_name'])->distinct(['city_name'])->where(['state_id' => $stateId])->toArray();
+            $cities = $this->Cities->find()->select(['id', 'city_name'])->distinct(['city_name'])->where(['state_id' => $stateId])->order(['city_name' => 'ASC'])->toArray();
             echo json_encode($cities);
             exit;
         }
@@ -123,7 +123,7 @@ class CitiesController extends AppController
     public function getZipcodesOfCity(){
         if( !empty($this->request->getData('city_name'))){
             $cityName = $this->request->getData('city_name');
-            $zipcode = $this->Cities->find()->select(['zipcode'])->where(['city_name' => $cityName])->toArray();
+            $zipcode = $this->Cities->find()->select(['zipcode'])->distinct(['zipcode'])->where(['city_name' => $cityName])->order(['zipcode' => 'ASC'])->toArray();
             echo json_encode($zipcode);
             exit;
         }

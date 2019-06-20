@@ -112,10 +112,9 @@ class StatesController extends AppController
     public function getStatesOfCountry(){
         if( !empty($this->request->getData('country_id'))){
             $countryId = $this->request->getData('country_id');
-            $states = $this->States->find()->select(['id', 'name'])->where(['country_id' => $countryId])->toArray();
+            $states = $this->States->find()->select(['id', 'name'])->distinct(['name'])->where(['country_id' => $countryId])->order(['name' => 'ASC'])->toArray();
             echo json_encode($states);
             exit;
         }
-
     }
 }
